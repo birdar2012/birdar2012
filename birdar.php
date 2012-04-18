@@ -7,7 +7,6 @@
 //Last Update: 4/11/12
 */
 
-<?
 
 // Change this to the path of your nightly folder where the downloaded images go
 $path_root = "/path/to/your/nightly/radar/folder";
