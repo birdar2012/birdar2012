@@ -9,26 +9,23 @@
 #change the value below to set the time delay between animation frames
 theDelay="40" 
 #the variable below ariable is used to add the date to the final animation file to be saved
-theDate=`date +%m%d` 
-#the variable below is the search string used for selecting which images to be used in the animation. 
-#All images with the current date will be used in the animation. If you instead want to animate all images in the folder, you can 
-#remove this from the paths below and simply use the wildcard "*"
-theDateStamp=`date +%y%m%d` 
+theDate=`date +%Y%m%d` 
+ 
 
 echo -n "Download New Images? y/n: "
 read -e RESPONSE
 echo -n $RESONSE
 if [ "$RESPONSE" = "y" ]; then
-	php ~/Documents/MyWebsites/woodcreeper/nightly_spring2012/birdar.php	#<-- edit this path to reflect the location of your birdar.php file
+	php /home/user/nightly/birdar.php	#<-- edit this path to reflect the location of your birdar.php file
 fi
 
 
 #now we invoke ImageMagick to create the animations.
-#the format is as follows: convert -delay $theDelay ~/path/to/radar/data/state/station/product/$theDateStamp*.png ~/path/to/animation/storage/directory/STATE-STATION-product-$theDate.gif
+#the format is as follows: convert -delay $theDelay ~/path/to/radar/data/state/station/product/$theDate*.png ~/path/to/animation/storage/directory/STATE-STATION-product-$theDate.gif
 #just change the paths below to point to the correct paths on your system and add copy/paste the lines to add radar stations
-convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.jpg 
-convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.jpg 
+convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDate*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.jpg 
+convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDate*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.jpg 
 
-convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.jpg 
-convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.jpg 
+convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDate*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.jpg 
+convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDate*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.jpg 
 
