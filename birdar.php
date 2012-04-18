@@ -8,7 +8,7 @@
 */
 
 
-// Change this to the path of your nightly folder where the downloaded images go
+// Change this to the FULL path of your nightly folder where the downloaded images go (as in, don't use ~/)
 $path_root = "/path/to/your/nightly/radar/folder";
 
 require_once 'birdar_downloads.php';
@@ -74,7 +74,7 @@ $image_save = $path_root . "/" . $r_state . "/" . $r_station . "/" . $image_fold
 
 $log_out .= $log_line++ . "). Downloading radar at " . $filename . "...... ";
 
-// now download file.. permissions and the folder structure should exist for all combinations of state - station - product
+// now download file... permissions and the folder structure should exist for all combinations of state - station - product
 
 file_put_contents($image_save, file_get_contents($filename));
 
